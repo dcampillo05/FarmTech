@@ -1,0 +1,82 @@
+﻿
+@model List<FornecedorModel>
+@{
+	ViewData["Title"] = "Lista de Forncedores";
+}
+
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-primary text-white" role="button" asp-controller="Fornecedor" asp-action="Create">Adicionar novo Forncedor</a>
+    </div>
+
+
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+
+	<h1 class="display-4">Lista de Forncedores</h1>
+
+    <div class="table-responsive">
+        <table class="table" id="tbFornecedor">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Ações</th> 
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (FornecedorModel fornecedor in Model)
+                    {
+                        <tr>
+                            <th scope="row">@fornecedor.Id</th>
+                            <td>@fornecedor.Name</td>
+                            <td>@fornecedor.Cnpj</td>
+                            <td>@fornecedor.Numero</td>
+                            <td>@fornecedor.Email</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a role="button" class="btn btn-primary text-white me-2" asp-route-id="@fornecedor.Id" asp-controller="Fornecedor" asp-action="Update"><i class="bi bi-pencil"></i>Editar</a>
+                                    <a role="button" class="btn btn-danger text-white" asp-route-id="@fornecedor.Id" asp-controller="Fornecedor" asp-action="DeleteConfirm"><i class="bi bi-trash3"></i>Apagar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script>
+        $('.close-alert').click(function () {
+               $(this).closest('.alert').hide();
+         );
+    </script>
+}

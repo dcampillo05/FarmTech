@@ -1,0 +1,50 @@
+﻿@using FarmTech.Enums
+@model UserModel
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Editar Usuario Usuario</h1>
+
+</div>
+
+<form asp-controller="User" asp-action="Alter" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Name">Nome</label>
+        <input type="text" id="Name" asp-for="Name" class="form-control" placeholder="Digite o nome do Usuario">
+        @Html.ValidationMessageFor(x => x.Name)
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" id="Email" asp-for="Email" class="form-control" placeholder="Digite o e-mail do Usuario">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+
+    <div class="form-group">
+        <label for="Login">Login</label>
+        <input type="text" id="Login" asp-for="Login" class="form-control" placeholder="Digite o login do usuario"/>
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+
+    <div class="form-group">
+        <label for="Profile">Perfil</label>
+        <select id="Profile" asp-for="Profile" class="form-control">
+            <option value="@EnumProfile.Admin">Administrador</option>
+            <option value="@EnumProfile.Padrao">Usuário</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+        <a class="btn btn-secondary mt-2" asp-controller="User" asp-action="Index" role="button">Voltar</a>
+    </div class="form-group">
+
+   
+</form>

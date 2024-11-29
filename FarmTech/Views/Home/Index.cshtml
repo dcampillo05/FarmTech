@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Farm Tech Innovate";
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <title>@ViewData["Title"]</title>
+</head>
+<body class="bg-dark text-white">
+    <!-- Header -->
+    <header class="bg-dark text-center text-light" style="background-image: url('/img/Lote.jpg'); background-size: cover; background-position: center;">
+        <div class="container py-5">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <img src="/img/logomenor.png" alt="Logo Farm Tech Innovate" width="150" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+ 
+ 
+            </nav>
+            <div class="py-5 text-center">
+                <h1>Cultivando Tradições e Colhendo Qualidade</h1>
+                <p>Seja pioneiro na segurança alimentar conosco. Nossa startup oferece soluções inovadoras para garantir qualidade e procedência dos alimentos.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quem somos -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h1>Quem somos</h1>
+            <div class="row align-items-center mt-4">
+                <div class="col-md-6">
+                    <p>A Farm Tech Innovate desenvolve soluções agrícolas inovadoras com uma API de inteligência artificial gratuita, oferecendo orientações precisas para maximizar a eficiência da produção.</p>
+                    <p>Atendemos principalmente empresários interessados em fazendas urbanas, promovendo práticas agrícolas sustentáveis e contribuindo para a segurança alimentar local.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="/img/Rectangle 3.png" class="img-fluid rounded" alt="Agricultor" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialistas -->
+    <section class="py-5 bg-secondary text-white">
+        <div class="container text-center">
+            <h1>Somos especialistas em:</h1>
+            <div class="row mt-4">
+                <div class="col-md-2">
+                    <img src="/img/image 2.png" class="img-fluid rounded-circle" alt="Cuidado" />
+                    <p>Cuidado</p>
+                </div>
+                <div class="col-md-2">
+                    <img src="/img/image 3.png" class="img-fluid rounded-circle" alt="Plantio" />
+                    <p>Plantio</p>
+                </div>
+                <div class="col-md-2">
+                    <img src="/img/image 4.png" class="img-fluid rounded-circle" alt="Controle" />
+                    <p>Controle</p>
+                </div>
+                <div class="col-md-2">
+                    <img src="/img/image 5.png" class="img-fluid rounded-circle" alt="Gestão" />
+                    <p>Gestão</p>
+                </div>
+                <div class="col-md-2">
+                    <img src="/img/pngwing 1.png" class="img-fluid rounded-circle" alt="Tecnologia" />
+                    <p>Tecnologia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h1>Contato</h1>
+            <p>(11) 3547-0406</p>
+            <p>FarmTechInnovate@gmail.com</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

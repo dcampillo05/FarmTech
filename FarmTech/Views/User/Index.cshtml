@@ -1,0 +1,84 @@
+﻿@model List<UserModel>
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+        <a class="btn btn-primary text-white" role="button" asp-controller="User" asp-action="Create">Adicionar novo Usuario</a>
+    </div>
+
+
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+
+
+    <h1 class="display-4">Lista de Usuarios</h1>
+
+    <div class="table-responsive">
+        <table class="table" id="tbFornecedor">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Data de cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (UserModel user in Model)
+                    {
+                        <tr>
+                            <th scope="row">@user.Id</th>
+                            <td>@user.Name</td>
+                            <td>@user.Login</td>
+                            <td>@(user.Profile == FarmTech.Enums.EnumProfile.Admin ? "Admin" : "Usuario")</td>
+                            <td>@user.Email</td>
+                            <td>@user.CreatedAt</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a role="button" class="btn btn-primary text-white me-2" asp-route-id="@user.Id" asp-controller="User" asp-action="Update"><i class="bi bi-pencil"></i>Editar</a>
+                                    <a role="button" class="btn btn-danger text-white" asp-route-id="@user.Id" asp-controller="User" asp-action="DeleteConfirm"><i class="bi bi-trash3"></i>Apagar</a>
+								</div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
+    <script>
+
+
+            $('.close-alert').click(function () {
+                $(this).closest('.alert').hide();
+            });
+        
+    </script>
+}

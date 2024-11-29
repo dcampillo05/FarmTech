@@ -1,0 +1,13 @@
+﻿@model FornecedorModel
+
+@{
+    ViewData["Title"] = "Deletar Fornecedor";
+}
+
+<div class="text-center">
+    <h3>Realmente deseja apagar o @Model.Name?</h3>
+    <a role="button" asp-action="Index" asp-controller="Fornecedor" class="btn btn-danger">Cancelar</a>
+    <a role="button" asp-action="Delete" asp-controller="Fornecedor" asp-route-id="@Model.Id" class="btn btn-primary">Confirmar</a>
+</div>
+
+

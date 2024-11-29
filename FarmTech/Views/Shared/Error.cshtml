@@ -1,0 +1,11 @@
+﻿@model FarmTech.Models.ErrorViewModel
+
+<h1 class="text-danger">Erro</h1>
+<h2 class="text-danger">Ocorreu um erro ao processar sua solicitação.</h2>
+
+@if (Model != null && Model.ShowRequestId)
+{
+    <p>
+        <strong>ID da Solicitação:</strong> <code>@Model.RequestId</code>
+    </p>
+}
